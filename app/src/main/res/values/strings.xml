@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Quote Quest</string>
+    <string name="error_getting_quote">Error getting quote</string>
+    <string name="author_data_not_available">author data not available</string>
 </resources>
