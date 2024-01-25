@@ -1,5 +1,6 @@
 package com.harini.quotequest;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -18,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton favButtonFull;
     private TextView quoteTextView;
     private TextView authorTextView;
+    private TextView favourites;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +31,17 @@ public class MainActivity extends AppCompatActivity {
         favButtonFull = findViewById(R.id.favButtonFull);
         quoteTextView = findViewById(R.id.quoteView);
         authorTextView = findViewById(R.id.quoteAuthorView);
+        favourites = findViewById(R.id.favListButton);
 
         Quote quoteOfTheDay = getRandomQuoteByDate(LocalDate.now());
 
         quoteTextView.setText(quoteOfTheDay.quote);
         authorTextView.setText(quoteOfTheDay.author);
+
+        favourites.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, FavoriteListActivity.class);
+            startActivity(intent);
+        });
 
         favButtonBorder.setOnClickListener(v -> {
             favButtonBorder.setVisibility(View.GONE);
