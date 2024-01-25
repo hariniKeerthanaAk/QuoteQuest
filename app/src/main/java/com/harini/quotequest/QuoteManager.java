@@ -143,7 +143,7 @@ public class QuoteManager {
         return getFavouriteQuotes(context).contains(quote);
     }
 
-    private Set<Quote> getFavouriteQuotes(Context context) {
+    public Set<Quote> getFavouriteQuotes(Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(SHARED_PREF_FAVORITE_QUOTES, Context.MODE_PRIVATE);
         String favouritesAsString = sharedPreferences.getString("favoriteList", "[]");
         try {
